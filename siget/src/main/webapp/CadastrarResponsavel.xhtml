@@ -10,21 +10,32 @@
 	<title>SIGET</title>
 </h:head>
 <h:body>
-	<h2 style="text-align: center">SISTEMA DE GERENCIAMENTO DE TAREFA
-		- SIGET</h2>
-	<h2 id="center">Cadastrar Responsável</h2>
-	<div class="formulario center">
-		<h:form id="form">
-			<h:panelGrid columns="2">
-				<p:outputLabel value="Nome" />
-				<p:inputText value="" />
+	<h2 style="text-align: center"></h2>
 
-				<h:panelGroup styleClass="center">
-					<p:commandButton value="Cadastrar"
-						action="#{tarefaBean.cadastrarTarefa}" />
-				</h:panelGroup>
-			</h:panelGrid>
+	<div class="card">
+		<h:form>
+			<p:growl id="msgs" showDetail="true" skipDetailIfEqualsSummary="true" />
+
+			<h1 class="p-mt-0" style="text-align: center">SISTEMA DE
+				GERENCIAMENTO DE TAREFA - SIGET</h1>
+
+			<p:fieldset legend="Cadastrar Responsável">
+				<h:panelGrid columns="2">
+					<p:outputLabel value="Nome:" />
+					<p:inputText style="width:500px" value="" />
+
+					<h:panelGroup styleClass="center">
+						<p:commandButton value="Voltar" action="CadastrarTarefa.xhtml" />
+					</h:panelGroup>
+
+					<h:panelGroup styleClass="center">
+						<p:commandButton value="Cadastrar" action=" " />
+					</h:panelGroup>
+
+				</h:panelGrid>
+			</p:fieldset>
 		</h:form>
 	</div>
+
 </h:body>
 </html>
