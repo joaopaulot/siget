@@ -1,0 +1,92 @@
+package dao;
+
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import model.Tarefa;
+
+@ManagedBean
+@SessionScoped
+public class TarefaBean {
+
+    private Tarefa prof = new Tarefa();
+    private List<Tarefa> professores;
+
+    /**
+     * Creates a new instance of ProfessorBean
+     */
+    public ProfessorBean() {
+        prof.setId(null);
+    }
+
+    public Tarefa getProf() {
+        return prof;
+    }
+
+    public void setProf(Tarefa prof) {
+        this.prof = prof;
+    }
+
+    public String salva() {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            // Inicia uma transação com o banco de dados.
+            em.getTransaction().begin();
+            // Verifica se a pessoa ainda não está salva no banco de dados.
+            if (prof.getId() == null) {
+                //Salva os dados da pessoa.
+                em.persist(prof);
+            } else {
+                //Atualiza os dados da pessoa.
+                prof = em.merge(prof);
+            }
+            // Finaliza a transação.
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+
+        this.professores = null;
+        return "ListarProfessores";
+    }
+
+    public List<Tarefa> getProfessores() {
+
+        if (this.tarefas == null) {
+            EntityManager em = JPAUtil.getEntityManager();
+            Query q = em.createQuery("select a from Professor a",
+            		Tarefa.class);
+            this.tarefas = q.getResultList();
+            em.close();
+        }
+        return professores;
+    }
+
+    public void excluir(Tarefa tarefa) {
+
+        if (professor.getId() != null) {
+            EntityManager em = JPAUtil.getEntityManager();
+
+            System.out.println(tarefa.getId() + ", " + tarefa.getNome());
+            em.getTransaction().begin();
+            tarefa = em.merge(tarefa);
+            em.remove(tarefa);
+            em.getTransaction().commit();
+            em.close();
+        }
+
+        this.tarefas = null;
+
+    }
+
+    public String alterar(Tarefa t) {
+        this.tar = t;
+        return "CadastrarProfessor";
+    }
+
+    public String cadastrarNovo(String complemento) {
+        tar = new Tarefa();
+        return complemento + "CadastrarProfessor";
+    }
+}

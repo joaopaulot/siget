@@ -1,0 +1,13 @@
+package model;
+
+import javax.persistence.*;
+
+@Entity
+public class Tarefa{
+	
+	@Id
+	@GeneratedValue(strategy=GenerateType.IDENTITY)
+	private int id;
+	
+	
+}

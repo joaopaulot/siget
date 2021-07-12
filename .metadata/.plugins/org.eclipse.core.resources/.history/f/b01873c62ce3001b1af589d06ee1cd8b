@@ -1,0 +1,89 @@
+package dao;
+
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import model.Tarefa;
+
+@ManagedBean
+@SessionScoped
+public class TarefaBean {
+
+    private Tarefa tar = new Tarefa();
+    private List<Tarefa> tarefas;
+
+    public TarefaBean() {
+        tar.setId(null);
+    }
+
+    public Tarefa getTar() {
+        return tar;
+    }
+
+    public void setTar(Tarefa tar) {
+        this.tar = tar;
+    }
+
+    public String salva() {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            // Inicia uma transação com o banco de dados.
+            em.getTransaction().begin();
+            // Verifica se a pessoa ainda não está salva no banco de dados.
+            if (tar.getId() == null) {
+                //Salva os dados da pessoa.
+                em.persist(tar);
+            } else {
+                //Atualiza os dados da pessoa.
+                tar = em.merge(tar);
+            }
+            // Finaliza a transação.
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+
+        this.professores = null;
+        return "ListarProfessores";
+    }
+
+    public List<Tarefa> getTarefas() {
+
+        if (this.tarefas == null) {
+            EntityManager em = JPAUtil.getEntityManager();
+            Query q = em.createQuery("select a from Tarefa a",
+            		Tarefa.class);
+            this.tarefas = q.getResultList();
+            em.close();
+        }
+        return tarefas;
+    }
+
+    public void excluir(Tarefa tarefa) {
+
+        if (tarefa.getId() != null) {
+            EntityManager em = JPAUtil.getEntityManager();
+
+            System.out.println(tarefa.getId() + ", " + tarefa.getTitulo());
+            em.getTransaction().begin();
+            tarefa = em.merge(tarefa);
+            em.remove(tarefa);
+            em.getTransaction().commit();
+            em.close();
+        }
+
+        this.tarefas = null;
+
+    }
+
+    public String alterar(Tarefa t) {
+        this.tar = t;
+        return "CadastrarTarefa";
+    }
+
+    public String cadastrarNova(String complemento) {
+        tar = new Tarefa();
+        return complemento + "CadastrarTarefa";
+    }
+}

@@ -1,0 +1,29 @@
+package model;
+
+import javax.persistence.*;
+
+@Entity
+public class Tarefa{
+	
+	@Id
+	private int id;
+	
+	@Column
+	private String titulo;
+	
+	@Column 
+	private String descricao;
+	
+	@Column
+	private String deadline;
+	
+	@ManyToOne
+	private int responsavel_id;
+	
+	@ManyToOne
+	private int situacao_id;
+	
+	@ManyToOne
+	private int prioridade_id;
+	
+}
