@@ -10,5 +10,5 @@ A proposta da atividade me trazia 3 teconoligas totalmente novas, no sentido de 
 o que fez com que fosse necessário dedicar tempo a pesquisa e estudo. Como é possível ver no projeto, não consegui concluir a tarefas,
 segue listado os passo executados:
 
-- modelagem do banco em nível conceitual, lógico e físico (postgresql)
-- implementação da interface (JSF)
+- modelagem do banco: conceitual, lógico e físico (postgresql).
+- implementação da interface: cadastrar tarefa, editar tarefa, cadastrar responsável (JSF).
