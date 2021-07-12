@@ -3,24 +3,26 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui" xmlns:a4j="http://richfaces.org/a4j">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<!-- <h:outputStylesheet library="css" name="styles.css" /> -->
-	<h:outputStylesheet library="resources/css" name="styles.css" />
+	<h:outputStylesheet library="/css" name="styles.css" />
 	<title>SIGET</title>
 </h:head>
 <h:body>
-	<div class="margin-top: 10px;">SISTEMA DE GERENCIAMENTO DE TAREFA - SIGET</div>
-	<h2 id="center" >Cadastrar Tarefa</h2>
+	<h2 style="text-align: center">SISTEMA DE GERENCIAMENTO DE TAREFA
+		- SIGET</h2>
+
+	<h2 id="center">Cadastrar Tarefa</h2>
+	<br />
 	<div class="formulario center">
 		<h:form id="form">
 			<h:panelGrid columns="2">
 				<p:outputLabel value="Título:" />
-				<p:inputText value="#{eventoBean.evento.nome}" />
+				<p:inputText value=" " />
 
 				<p:outputLabel value="Descrição:" />
-				<p:inputTextarea value="#{eventoBean.evento.nome}" />
+				<p:inputTextarea value=" " />
 
 				<p:outputLabel value="Responsável:" />
 				<p:selectOneMenu>
@@ -33,10 +35,9 @@
 				</p:selectOneMenu>
 
 				<p:outputLabel value="Deadline:" />
-				<p:inputText value="#{eventoBean.evento.nome}" type="date" />
+				<p:inputText value=" " type="date" />
 				<h:panelGroup styleClass="center">
-					<p:commandButton value="Cadastrar"
-						action="#{tarefaBean.cadastrarTarefa}" />
+					<p:commandButton value="Salvar" action=" " />
 				</h:panelGroup>
 			</h:panelGrid>
 		</h:form>
