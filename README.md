@@ -1,8 +1,8 @@
 # Sistema de Gerenciamento de Tarefas - SIGET
 
-nome do banco: siget
-login: jp
-senha: 2021
+- nome do banco: siget
+- login: jp
+- senha: 2021
 
 Houveram algumas limitações no desenvolvimento do projeto. Meu contato com java é bem recente, janeiro de 2021,
 quando comecei a desenvolver meu trabalho de conclusão de curso, onde utilizei java, spring mvc, bootstrap, html e mysql.
