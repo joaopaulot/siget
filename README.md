@@ -4,7 +4,7 @@
 - login: jp
 - senha: 2021
 
-Houveram algumas limitações no desenvolvimento do tarefa. Meu contato com java é bem recente (janeiro de 2021), quando comecei a desenvolver meu trabalho de conclusão de curso, onde utilizei java, spring mvc, bootstrap, html e mysqlWorkbench. A proposta da atividade me trazia 3 tecnologias com as quais nunca havia trabalho (JSF, JPA e postgresql), o que fez com que houvesse dificuldade em iniciar um projeto do zero, e também foi necessário dedicar tempo a pesquisa e estudo. Como é possível ver no projeto, não consegui concluir a tarefa por completo, mas segue listado os passos executados:
+Houveram algumas limitações no desenvolvimento do tarefa. Meu contato com java é bem recente (janeiro de 2021), quando comecei a desenvolver meu trabalho de conclusão de curso, onde utilizei java, spring mvc, bootstrap, html e mysqlWorkbench. A proposta da atividade me trazia 3 tecnologias com as quais nunca havia trabalhado (JSF, JPA e postgresql), o que fez com que houvesse dificuldade em iniciar um projeto do zero, e também foi necessário dedicar tempo a pesquisa e estudo. Como é possível ver no projeto, não consegui concluir a tarefa por completo, mas segue listado os passos executados:
 
 - modelagem do banco: conceitual, lógico e físico (postgresql).
 - implementação das telas de: cadastrar tarefa, editar tarefa, cadastrar responsável (JSF).
