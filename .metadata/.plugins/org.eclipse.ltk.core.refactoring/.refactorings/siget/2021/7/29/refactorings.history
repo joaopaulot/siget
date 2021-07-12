@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;siget/src/main/java/model/evento.java&apos; to &apos;Tarefa.java&apos;" description="Rename resource &apos;evento.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/java/model/evento.java" name="Tarefa.java" stamp="1626056237785" updateReferences="true"/>
+</session>

@@ -1,0 +1,3 @@
+#Tomcat publish data
+#Mon Jul 12 11:59:51 BRT 2021
+org.eclipse.jst.jee.server\:siget=/Users/jp/Downloads/apache-tomcat-9.0.40 3/wtpwebapps/siget

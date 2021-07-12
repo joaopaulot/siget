@@ -1,0 +1,97 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package dao;
+
+import java.util.List;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import model.Tarefa;
+
+@ManagedBean
+@SessionScoped
+public class TarefaBean {
+
+    private Tarefa t = new Tarefa();
+    private List<Tarefa> tarefas;
+
+    /**
+     * Creates a new instance of ProfessorBean
+     */
+    public TarefaBean() {
+        tarefa.setId(null);
+    }
+
+    public Tarefa getProf() {
+        return tarefa;
+    }
+
+    public void setProf(Tarefa tarefa) {
+        this.tarefa = tarefa;
+    }
+
+    public String salva() {
+
+        EntityManager em = JPAUtil.getEntityManager();
+        try {
+            // Inicia uma transação com o banco de dados.
+            em.getTransaction().begin();
+            // Verifica se a pessoa ainda não está salva no banco de dados.
+            if (prof.getId() == null) {
+                //Salva os dados da pessoa.
+                em.persist(t);
+            } else {
+                //Atualiza os dados da pessoa.
+                t = em.merge(t);
+            }
+            // Finaliza a transação.
+            em.getTransaction().commit();
+        } finally {
+            em.close();
+        }
+
+        this.tarefas = null;
+        return "ListarTarefas";
+    }
+
+    public List<Tarefa> getProfessores() {
+
+        if (this.tarefas == null) {
+            EntityManager em = JPAUtil.getEntityManager();
+            Query q = em.createQuery("select a from Professor a",
+            		Tarefa.class);
+            this.tarefas = q.getResultList();
+            em.close();
+        }
+        return tarefas;
+    }
+
+    public void excluir(Tarefa tarefa) {
+
+        if (tarefa.getId() != null) {
+            EntityManager em = JPAUtil.getEntityManager();
+
+            System.out.println(professor.getId() + ", " + professor.getNome());
+            em.getTransaction().begin();
+            professor = em.merge(professor);
+            em.remove(professor);
+            em.getTransaction().commit();
+            em.close();
+        }
+
+        this.professores = null;
+
+    }
+
+    public String alterar(Tarefa ta) {
+        this.t = ta;
+        return "CadastrarProfessor";
+    }
+
+    public String cadastrarNovo(String complemento) {
+        t = new Tarefa();
+        return complemento + "CadastrarProfessor";
+    }
+}
